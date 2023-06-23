@@ -45,7 +45,8 @@
     "subscriptions-transport-ws": "^0.9.19",
     "typescript": "^4.3.5",
     "victory": "^36.0.1",
-    "web-vitals": "^1.1.2"
+    "web-vitals": "^1.1.2",
+    "tailwindcss": "^2.2.7"
   },
   "scripts": {
     "tailwind:build": "tailwind -i src/styles/tailwind.css -o ./src/styles/styles.css",
@@ -74,8 +75,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "tailwindcss": "^2.2.19"
   }
 }
