@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+
+.button {
+    @apply bg-gray-500 hover:bg-gray-600 text-white cursor-pointer text-center
+}
+
+@tailwind utilities;

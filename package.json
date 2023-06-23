@@ -1,0 +1,81 @@
+{
+  "name": "tyche-invest-frontend",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "@apollo/client": "^3.4.8",
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@fortawesome/react-fontawesome": "^0.1.15",
+    "@tailwindcss/forms": "^0.3.3",
+    "@types/jest": "^26.0.24",
+    "@types/node": "^12.20.19",
+    "@types/react": "^17.0.18",
+    "@types/react-dom": "^17.0.9",
+    "@types/react-helmet": "^6.1.2",
+    "@types/react-router-dom": "^5.1.8",
+    "apollo": "^2.33.6",
+    "autoprefixer": "^10.3.1",
+    "axios": "^0.24.0",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "graphql": "^15.5.1",
+    "helmet": "^4.6.0",
+    "helmet-csp": "^3.4.0",
+    "moment": "^2.29.1",
+    "moment-timezone": "^0.5.34",
+    "nodemon": "^2.0.14",
+    "postcss": "^8.3.6",
+    "prettier": "^2.3.2",
+    "query-string": "^7.0.1",
+    "react": "^17.0.2",
+    "react-ace": "^9.4.3",
+    "react-dom": "^17.0.2",
+    "react-helmet": "^6.1.0",
+    "react-helmet-async": "^1.0.9",
+    "react-hook-form": "^7.12.2",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "5.0.1",
+    "react-error-overlay": "6.0.9",
+    "rimraf": "^3.0.2",
+    "subscriptions-transport-ws": "^0.9.19",
+    "typescript": "^4.3.5",
+    "victory": "^36.0.1",
+    "web-vitals": "^1.1.2"
+  },
+  "scripts": {
+    "tailwind:build": "tailwind -i src/styles/tailwind.css -o ./src/styles/styles.css",
+    "tailwind:build-watch": "tailwind -i src/styles/tailwind.css -o ./src/styles/styles.css --watch",
+    "start": "react-scripts start",
+    "apollo:codegen": "rimraf src/__generated__ && cross-env NODE_TLS_REJECT_UNAUTHORIZED=0 apollo client:codegen src/__generated__ --target=typescript --outputFlat",
+    "build": "react-scripts build",
+    "prebuild": "cross-env NODE_ENV=production npm run tailwind:build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "tailwindcss": "^2.2.19"
+  }
+}
