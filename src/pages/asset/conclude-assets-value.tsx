@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { IPageNotice, ITestAsset } from "../../common.interface";
-import { Layout } from "../layout";
-import { PageNotice } from "../../components/page-notice";
-import { Air } from "../../components/air";
-import { Link } from "react-router-dom";
-
-interface IUpdateAttr extends Pick<ITestAsset, "amount" | "askAvg" | "price"> {}
+import React, { useEffect, useState } from 'react';
+import { IPageNotice, ITestAsset } from '../../common.interface';
+import { Layout } from '../layout';
+import { PageNotice } from '../../components/page-notice';
+import { Air } from '../../components/air';
+import { Link } from 'react-router-dom';
 
 interface IConcludeViewAttr extends ITestAsset {
   performColour?: string;
@@ -19,26 +17,26 @@ export const ConcludeAssetsValue = () => {
     const testAsset = [
       {
         id: 1,
-        name: "Apple",
-        categoryName: "Stock",
-        subCategoryName: "US-Stock",
+        name: 'Apple',
+        categoryName: 'Stock',
+        subCategoryName: 'US-Stock',
         amount: 10,
-        accountName: "KB",
+        accountName: 'KB',
         price: 200,
-        currencyType: "USD",
+        currencyType: 'USD',
         askAvg: 130,
         perform: 30,
         marketValue: 2000,
       },
       {
         id: 2,
-        name: "Facebook",
-        categoryName: "Stock",
-        subCategoryName: "US-Stock",
+        name: 'Facebook',
+        categoryName: 'Stock',
+        subCategoryName: 'US-Stock',
         amount: 3,
-        accountName: "KB",
+        accountName: 'KB',
         price: 304,
-        currencyType: "USD",
+        currencyType: 'USD',
         askAvg: 500,
         perform: -50,
         marketValue: 608,
@@ -53,12 +51,12 @@ export const ConcludeAssetsValue = () => {
           perform,
           performColour,
         };
-      })
+      }),
     );
   }, []);
 
   const onSubmit = () => {
-    setPageNotice({ message: "저장 되었습니다." });
+    setPageNotice({ message: '저장 되었습니다.' });
   };
 
   const changeAsset = (newAsset: IConcludeViewAttr) => {
@@ -96,7 +94,7 @@ export const ConcludeAssetsValue = () => {
   };
 
   const getPerformColour = (val: number) => {
-    return val > 0 ? "text-blue-600" : val < 0 ? "text-red-500" : "text-black";
+    return val > 0 ? 'text-blue-600' : val < 0 ? 'text-red-500' : 'text-black';
   };
 
   return (
@@ -120,7 +118,7 @@ export const ConcludeAssetsValue = () => {
         <div id="mainContent" className="">
           <div className="flex flex-row justify-between h-6">
             <div></div>
-            <Link to={"/assets"}>
+            <Link to={'/assets'}>
               <div className="button">Manage Assets</div>
             </Link>
           </div>

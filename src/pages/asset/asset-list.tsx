@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { IPageNotice, ITestAsset } from "../../common.interface";
-import { Layout } from "../layout";
-import { PageNotice } from "../../components/page-notice";
-import { Air } from "../../components/air";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import { IPageNotice, ITestAsset } from '../../common.interface';
+import { Layout } from '../layout';
+import { PageNotice } from '../../components/page-notice';
+import { Link } from 'react-router-dom';
 
 export const AssetList = () => {
   const [assets, setAssets] = useState<ITestAsset[]>([]);
@@ -13,26 +12,26 @@ export const AssetList = () => {
     setAssets([
       {
         id: 1,
-        name: "Apple",
-        categoryName: "Stock",
-        subCategoryName: "US-Stock",
+        name: 'Apple',
+        categoryName: 'Stock',
+        subCategoryName: 'US-Stock',
         amount: 10,
-        accountName: "KB",
+        accountName: 'KB',
         price: 200,
-        currencyType: "USD",
+        currencyType: 'USD',
         askAvg: 130,
         perform: 30,
         marketValue: 2000,
       },
       {
         id: 2,
-        name: "Facebook",
-        categoryName: "Stock",
-        subCategoryName: "US-Stock",
+        name: 'Facebook',
+        categoryName: 'Stock',
+        subCategoryName: 'US-Stock',
         amount: 3,
-        accountName: "KB",
+        accountName: 'KB',
         price: 304,
-        currencyType: "USD",
+        currencyType: 'USD',
         askAvg: 500,
         perform: -50,
         marketValue: 608,
@@ -41,7 +40,7 @@ export const AssetList = () => {
   }, []);
 
   const onSubmit = () => {
-    setPageNotice({ message: "저장 되었습니다." });
+    setPageNotice({ message: '저장 되었습니다.' });
   };
 
   return (
@@ -51,7 +50,7 @@ export const AssetList = () => {
         <div id="mainContent" className="">
           <div className="flex flex-row justify-between h-6">
             <div></div>
-            <Link to={"/assets/new"}>
+            <Link to={'/assets/new'}>
               <div className="button">New Assets</div>
             </Link>
           </div>

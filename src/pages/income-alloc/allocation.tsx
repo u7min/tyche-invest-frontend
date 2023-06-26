@@ -1,9 +1,9 @@
-import { Layout } from "../layout";
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { IPageNotice, ITestAccount } from "../../common.interface";
-import { PageNotice } from "../../components/page-notice";
-import { Air } from "../../components/air";
+import { Layout } from '../layout';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { IPageNotice, ITestAccount } from '../../common.interface';
+import { PageNotice } from '../../components/page-notice';
+import { Air } from '../../components/air';
 
 export const Allocation = () => {
   const [accounts, setAccounts] = useState<ITestAccount[]>([]);
@@ -14,14 +14,14 @@ export const Allocation = () => {
     setAccounts([
       {
         id: 1,
-        name: "KB",
-        accountNumber: "1111-1111-11111",
+        name: 'KB',
+        accountNumber: '1111-1111-11111',
         allocRate: 50,
       },
       {
         id: 2,
-        name: "KAKAO",
-        accountNumber: "2222-1111-11111",
+        name: 'KAKAO',
+        accountNumber: '2222-1111-11111',
         allocRate: 50,
       },
     ]);
@@ -33,7 +33,7 @@ export const Allocation = () => {
   };
 
   const onSubmit = () => {
-    setPageNotice({ message: "저장 되었습니다." });
+    setPageNotice({ message: '저장 되었습니다.' });
   };
 
   return (
@@ -47,9 +47,8 @@ export const Allocation = () => {
                 <option>2023년 5월</option>
               </select>
             </div>
-            <div className="w-1/2 divide-y">
-              <div className="text-center">이달 Income</div>
-              <div>
+            <div className="w-1/2">
+              <div className="h-full">
                 <input
                   className="w-full h-full pl-1"
                   type="number"
@@ -66,7 +65,7 @@ export const Allocation = () => {
         <div id="mainContent" className="">
           <div className="flex flex-row justify-between h-6">
             <div></div>
-            <Link to={"/accounts"}>
+            <Link to={'/accounts'}>
               <div className="button">Manage Account</div>
             </Link>
           </div>

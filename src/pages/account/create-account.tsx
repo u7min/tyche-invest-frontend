@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from "react";
-import { IPageNotice, ITestAccount } from "../../common.interface";
-import { Layout } from "../layout";
-import { PageNotice } from "../../components/page-notice";
-import { Link, useHistory, useLocation } from "react-router-dom";
+import React, { useState } from 'react';
+import { IPageNotice } from '../../common.interface';
+import { Layout } from '../layout';
+import { PageNotice } from '../../components/page-notice';
+import { useHistory } from 'react-router-dom';
 
 export const CreateAccount = () => {
   const history = useHistory();
   const [pageNotice, setPageNotice] = useState<IPageNotice | undefined>();
 
   const onSubmit = () => {
-    history.push("/accounts");
+    history.push('/accounts');
   };
 
   return (
