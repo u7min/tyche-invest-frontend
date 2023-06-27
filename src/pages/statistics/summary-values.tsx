@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Area,
   AreaChart,
@@ -14,8 +14,15 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
-import { Air } from '../../components/air';
-import { Layout } from '../layout';
+import { PageRoot } from '../../components/page-root';
+import { PageNotice } from '../../components/page-notice';
+import { IPageNotice } from '../../common.interface';
+import { PageContainer } from '../../components/page-container';
+import { TopDisplay } from '../../components/top-display';
+import { MainContent } from '../../components/mainContent';
+import { Panel } from '../../components/panel';
+import { PanelHeader } from '../../components/panel-header';
+import { PanelContent } from '../../components/panel-content';
 
 const assets = [
   {
@@ -124,38 +131,40 @@ const renderCustomizedLabel = ({
 };
 
 export const SummaryValues = () => {
+  const [pageNotice, setPageNotice] = useState<IPageNotice | undefined>();
+
   return (
-    <Layout title="MonthlyAllocation">
-      <div className="bg-blue-50 h-full">
-        <div id="upper" className="h-16">
+    <PageRoot title="Summary">
+      <PageNotice {...pageNotice} />
+      <PageContainer>
+        <TopDisplay>
           <div className="flex flex-row h-full">
-            <div className="w-1/2 bg-gray-600 text-center">
-              <select className="h-full w-full border text-xl">
+            <div className="w-1/2 text-center border-r">
+              <select className="h-full w-full text-xl border-0">
                 <option>2023년 5월</option>
               </select>
             </div>
-            <div className="w-1/2 flex flex-col">
+            <div className="w-1/2 flex flex-col h-12">
               <div className="h-1/2">
-                <select className="h-full w-full border py-0 px-1">
+                <select className="h-full w-full py-0 px-1 border-0">
                   <option>주식</option>
                 </select>
               </div>
-              <div className="h-1/2">
-                <select className="h-full w-full border py-0 px-1">
+              <div className="h-1/2 border-t">
+                <select className="h-full w-full py-0 px-1 border-0">
                   <option>해외주식</option>
                 </select>
               </div>
             </div>
           </div>
-        </div>
-        <Air />
-        <div id="mainContent" className="flex flex-col space-y-3 p-3">
-          <div className="bg-gray-200">
-            <div className="flex flex-row justify-between h-6">
+        </TopDisplay>
+        <MainContent>
+          <Panel>
+            <PanelHeader>
               <div>자산 현황</div>
               <div></div>
-            </div>
-            <div className="overflow-x-auto">
+            </PanelHeader>
+            <PanelContent>
               <table className="table w-full bg-white text-left border">
                 <thead>
                   <tr>
@@ -187,14 +196,14 @@ export const SummaryValues = () => {
                   ))}
                 </tbody>
               </table>
-            </div>
-          </div>
-          <div className="bg-gray-200">
-            <div className="flex flex-row justify-between h-6">
+            </PanelContent>
+          </Panel>
+          <Panel>
+            <PanelHeader>
               <div>자산 현황</div>
               <div></div>
-            </div>
-            <div>
+            </PanelHeader>
+            <PanelContent>
               <ResponsiveContainer width="100%" height={400}>
                 <PieChart
                   margin={{
@@ -222,14 +231,14 @@ export const SummaryValues = () => {
                   </Pie>
                 </PieChart>
               </ResponsiveContainer>
-            </div>
-          </div>
-          <div className="bg-gray-200">
-            <div className="flex flex-row justify-between h-6">
+            </PanelContent>
+          </Panel>
+          <Panel>
+            <PanelHeader>
               <div>월별 변화량</div>
               <div></div>
-            </div>
-            <div>
+            </PanelHeader>
+            <PanelContent>
               <ResponsiveContainer width="100%" height={400}>
                 <AreaChart
                   className=""
@@ -266,14 +275,14 @@ export const SummaryValues = () => {
                   />
                 </AreaChart>
               </ResponsiveContainer>
-            </div>
-          </div>
-          <div className="bg-gray-200">
-            <div className="flex flex-row justify-between h-6">
+            </PanelContent>
+          </Panel>
+          <Panel>
+            <PanelHeader>
               <div>계좌별 월별 비중</div>
               <div></div>
-            </div>
-            <div>
+            </PanelHeader>
+            <PanelContent>
               <ResponsiveContainer width="100%" height={400}>
                 <BarChart
                   width={500}
@@ -296,10 +305,10 @@ export const SummaryValues = () => {
                   <Bar dataKey="account3" stackId="a" fill="#1DDB16" />
                 </BarChart>
               </ResponsiveContainer>
-            </div>
-          </div>
-        </div>
-      </div>
-    </Layout>
+            </PanelContent>
+          </Panel>
+        </MainContent>
+      </PageContainer>
+    </PageRoot>
   );
 };

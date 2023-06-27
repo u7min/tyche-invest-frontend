@@ -1,8 +1,14 @@
 import React, { useState } from 'react';
 import { IPageNotice } from '../../common.interface';
-import { Layout } from '../layout';
 import { PageNotice } from '../../components/page-notice';
 import { useHistory } from 'react-router-dom';
+import { PageRoot } from '../../components/page-root';
+import { PageContainer } from '../../components/page-container';
+import { MainContent } from '../../components/mainContent';
+import { Panel } from '../../components/panel';
+import { PanelHeader } from '../../components/panel-header';
+import { PanelContent } from '../../components/panel-content';
+import { PanelFooter } from '../../components/panel-footer';
 
 export const CreateAsset = () => {
   const history = useHistory();
@@ -13,75 +19,72 @@ export const CreateAsset = () => {
   };
 
   return (
-    <Layout title="Create Asset">
+    <PageRoot title="Create Asset">
       <PageNotice {...pageNotice} />
-      <div className="bg-blue-50 h-full">
-        <div id="mainContent" className="">
-          <div className="flex flex-row justify-between h-6">
-            <div></div>
-            <div></div>
-          </div>
-          <div className="flex flex-row">
-            <div className="w-5"></div>
-            <div className="w-full flex flex-col space-y-2">
-              <div>
-                <div>Name</div>
+      <PageContainer>
+        <MainContent>
+          <Panel>
+            <PanelContent>
+              <div className="w-full flex flex-col space-y-2 px-3 pt-3">
                 <div>
-                  <input className="border w-full" />
+                  <div>Name</div>
+                  <div>
+                    <input type="text" className="border w-full h-10 pl-1" />
+                  </div>
+                </div>
+                <div>
+                  <div>Account</div>
+                  <div>
+                    <select className="border w-full h-10">
+                      <option>- Select -</option>
+                    </select>
+                  </div>
+                </div>
+                <div>
+                  <div>Category</div>
+                  <div>
+                    <select className="border w-full h-10">
+                      <option>- Select -</option>
+                    </select>
+                  </div>
+                </div>
+                <div>
+                  <div>Sub Category</div>
+                  <div>
+                    <select className="border w-full h-10">
+                      <option>- Select -</option>
+                    </select>
+                  </div>
+                </div>
+                <div>
+                  <div>Currency Type</div>
+                  <div>
+                    <select className="border w-full h-10">
+                      <option>- Select -</option>
+                    </select>
+                  </div>
+                </div>
+                <div>
+                  <div>Amount</div>
+                  <div>
+                    <input type="number" className="border w-full h-10 pl-1" />
+                  </div>
                 </div>
               </div>
-              <div>
-                <div>Account</div>
-                <div>
-                  <select className="border w-full h-7">
-                    <option>- Select -</option>
-                  </select>
+              <div className="w-5"></div>
+            </PanelContent>
+            <PanelFooter>
+              <div></div>
+              <div className="flex flex-row">
+                <div className="button" onClick={onSubmit}>
+                  Create
                 </div>
               </div>
-              <div>
-                <div>Category</div>
-                <div>
-                  <select className="border w-full h-7">
-                    <option>- Select -</option>
-                  </select>
-                </div>
-              </div>
-              <div>
-                <div>Sub Category</div>
-                <div>
-                  <select className="border w-full h-7">
-                    <option>- Select -</option>
-                  </select>
-                </div>
-              </div>
-              <div>
-                <div>Currency Type</div>
-                <div>
-                  <select className="border w-full h-7">
-                    <option>- Select -</option>
-                  </select>
-                </div>
-              </div>
-              <div>
-                <div>Amount</div>
-                <div>
-                  <input type="number" className="border w-full" />
-                </div>
-              </div>
-            </div>
-            <div className="w-5"></div>
-          </div>
-        </div>
-        <div className="flex flex-row justify-between py-3">
-          <div></div>
-          <div className="flex flex-row">
-            <div className="button" onClick={onSubmit}>
-              Create
-            </div>
-          </div>
-          <div></div>
-        </div>
-      </div>
-    </Layout>
+              <div></div>
+            </PanelFooter>
+          </Panel>
+        </MainContent>
+      </PageContainer>
+    </PageRoot>
   );
 };

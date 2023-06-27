@@ -1,8 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { IPageNotice, ITestAsset } from '../../common.interface';
-import { Layout } from '../layout';
 import { PageNotice } from '../../components/page-notice';
 import { Link } from 'react-router-dom';
+import { PageRoot } from '../../components/page-root';
+import { PageContainer } from '../../components/page-container';
+import { MainContent } from '../../components/mainContent';
+import { Panel } from '../../components/panel';
+import { PanelHeader } from '../../components/panel-header';
+import { PanelContent } from '../../components/panel-content';
 
 export const AssetList = () => {
   const [assets, setAssets] = useState<ITestAsset[]>([]);
@@ -44,47 +49,55 @@ export const AssetList = () => {
   };
 
   return (
-    <Layout title="Assets">
+    <PageRoot title="Assets">
       <PageNotice {...pageNotice} />
-      <div className="bg-blue-50 h-full">
-        <div id="mainContent" className="">
-          <div className="flex flex-row justify-between h-6">
-            <div></div>
-            <Link to={'/assets/new'}>
-              <div className="button">New Assets</div>
-            </Link>
-          </div>
-          <div className="overflow-x-auto">
-            <table className="table w-full bg-white text-left border">
-              <thead>
-                <tr>
-                  <th className="border-r">Name</th>
-                  <th className="border-r">Account</th>
-                  <th className="border-r">Category</th>
-                  <th className="border-r">Currency</th>
-                  <th className="border-r">Amount</th>
-                </tr>
-              </thead>
-              <tbody>
-                {assets.map((asset) => (
-                  <tr
-                    className="hover:bg-gray-100 cursor-pointer"
-                    key={asset.id}
-                  >
-                    <td className="border-t border-r">{asset.name}</td>
-                    <td className="border-t border-r">{asset.accountName}</td>
-                    <td className="border-t border-r">{asset.categoryName}</td>
-                    <td className="border-t border-r">{asset.currencyType}</td>
-                    <td className="border-t border-r text-right">
-                      {asset.amount}
-                    </td>
+      <PageContainer>
+        <MainContent>
+          <Panel>
+            <PanelHeader>
+              <div></div>
+              <div>
+                <Link to={'/assets/new'}>
+                  <div className="button">New Assets</div>
+                </Link>
+              </div>
+            </PanelHeader>
+            <PanelContent>
+              <table className="table w-full bg-white text-left border">
+                <thead>
+                  <tr>
+                    <th className="border-r">Name</th>
+                    <th className="border-r">Account</th>
+                    <th className="border-r">Category</th>
+                    <th className="border-r">Currency</th>
+                    <th className="border-r">Amount</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </Layout>
+                </thead>
+                <tbody>
+                  {assets.map((asset) => (
+                    <tr
+                      className="hover:bg-gray-100 cursor-pointer"
+                      key={asset.id}
+                    >
+                      <td className="border-t border-r">{asset.name}</td>
+                      <td className="border-t border-r">{asset.accountName}</td>
+                      <td className="border-t border-r">
+                        {asset.categoryName}
+                      </td>
+                      <td className="border-t border-r">
+                        {asset.currencyType}
+                      </td>
+                      <td className="border-t border-r text-right">
+                        {asset.amount}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </PanelContent>
+          </Panel>
+        </MainContent>
+      </PageContainer>
+    </PageRoot>
   );
 };
